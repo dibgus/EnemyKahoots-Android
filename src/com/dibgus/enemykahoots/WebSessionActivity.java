@@ -75,8 +75,8 @@ public class WebSessionActivity extends Activity {
         for(int i = 0; i < 10; i++) //make sure i see it
         System.out.println(choice);
         if (choice == -1) return;
-        execJavaScript("document.getElementsByTagName('button')[" + (choice + 1) + "].click();");
-        System.out.println("document.getElementsByTagName('button')[" + (choice + 1) + "].click();");
+        execJavaScript("document.getElementsByTagName('button')[" + (choice) + "].click();");
+        System.out.println("document.getElementsByTagName('button')[" + (choice) + "].click();");
     }
 
     public class InteractionHandler {

@@ -18,9 +18,10 @@ public class MyActivity extends Activity {
 
     public static ArrayList<WebView> drivers = new ArrayList<WebView>();
     public static MyActivity main;
-    public static int answer; //0-4 a-d; -1 none
+    public static int answer; //0-3 a-d; -1 none
     private ArrayList<UserType> users = new ArrayList<UserType>();
     private KeyListener txtIDListener;
+
     /**
      * Called when the activity is first created.
      */
@@ -57,6 +58,7 @@ public class MyActivity extends Activity {
                     userLabel.setText(userLabel.getText().toString() + txtName.getText().toString());
                 else
                     userLabel.setText(userLabel.getText().toString() + ", " + txtName.getText().toString());
+                Toast.makeText(getApplicationContext(), "Added User: " + txtName.getText().toString(), Toast.LENGTH_LONG).show();
                 txtName.setText("");
             }
         };
@@ -100,8 +102,8 @@ public class MyActivity extends Activity {
                 else
                     MyActivity.answer = -1;
                 for(WebSessionActivity activity : WebSessionActivity.sessions)
-                    activity.getAnswer();
-                System.out.println(MyActivity.answer);
+                 activity.getAnswer();
+                Toast.makeText(getApplicationContext(), MyActivity.answer + "", Toast.LENGTH_SHORT).show();
             }
         };
         ansA.setOnClickListener(answer_click);
