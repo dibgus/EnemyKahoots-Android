@@ -4,11 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcel;
+import android.text.method.KeyListener;
 import android.view.View;
 import android.webkit.WebView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.RadioButton;
+import android.widget.*;
 import com.dibgus.EnemyKahoots.R;
 import com.dibgus.enemykahoots.user.UserType;
 
@@ -21,6 +20,7 @@ public class MyActivity extends Activity {
     public static MyActivity main;
     public static int answer; //0-4 a-d; -1 none
     private ArrayList<UserType> users = new ArrayList<UserType>();
+    private KeyListener txtIDListener;
     /**
      * Called when the activity is first created.
      */
@@ -52,9 +52,32 @@ public class MyActivity extends Activity {
                 users.add(type);
                 startActivity(i);
                 startActivity(main.getIntent());
+                TextView userLabel = (TextView)findViewById(R.id.lblUsers);
+                if(userLabel.getText().toString().equals("Users: "))
+                    userLabel.setText(userLabel.getText().toString() + txtName.getText().toString());
+                else
+                    userLabel.setText(userLabel.getText().toString() + ", " + txtName.getText().toString());
+                txtName.setText("");
             }
         };
         submit.setOnClickListener(submit_click);
+
+        View.OnClickListener checkbox_click = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText idtextbox = (EditText)findViewById(R.id.txtID);
+                if(((CheckBox)findViewById(R.id.ckbxLockID)).isChecked())
+                {
+                    txtIDListener = idtextbox.getKeyListener();
+                    idtextbox.setKeyListener(null);
+                }
+                else
+                {
+                    idtextbox.setKeyListener(txtIDListener);
+                }
+            }
+        };
+        findViewById(R.id.ckbxLockID).setOnClickListener(checkbox_click);
 
         //UPDATE ANSWER
         Button ansA = (Button)findViewById(R.id.btnA);

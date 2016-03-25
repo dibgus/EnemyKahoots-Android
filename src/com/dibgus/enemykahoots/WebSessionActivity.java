@@ -33,6 +33,7 @@ public class WebSessionActivity extends Activity {
         super.onCreate(savedInstanceState);
         mainView = (WebView) findViewById(R.id.mainView);
         mainView.getSettings().setJavaScriptEnabled(true);
+        mainView.getSettings().setDomStorageEnabled(true);
         InteractionHandler webHandler = new InteractionHandler();
         mainView.addJavascriptInterface(webHandler, "HtmlViewer");
         mainView.setWebViewClient(new WebViewClient() {
@@ -71,6 +72,8 @@ public class WebSessionActivity extends Activity {
                 choice = MyActivity.answer;
                 break;
         }
+        for(int i = 0; i < 10; i++) //make sure i see it
+        System.out.println(choice);
         if (choice == -1) return;
         execJavaScript("document.getElementsByTagName('button')[" + (choice + 1) + "].click();");
         System.out.println("document.getElementsByTagName('button')[" + (choice + 1) + "].click();");
