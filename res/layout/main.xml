@@ -24,7 +24,8 @@
             <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txtID" android:layout_weight="0.87"/>
+                    android:id="@+id/txtID" android:layout_weight="0.87"
+                    android:inputType="phone"/>
         </TableRow>
         <TableRow
                 android:layout_width="match_parent"

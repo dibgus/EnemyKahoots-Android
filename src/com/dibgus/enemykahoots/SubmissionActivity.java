@@ -1,9 +1,9 @@
 package com.dibgus.enemykahoots;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcel;
 import android.text.method.KeyListener;
 import android.view.View;
 import android.webkit.WebView;
@@ -11,13 +11,12 @@ import android.widget.*;
 import com.dibgus.EnemyKahoots.R;
 import com.dibgus.enemykahoots.user.UserType;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
-public class MyActivity extends Activity {
+public class SubmissionActivity extends Activity {
 
     public static ArrayList<WebView> drivers = new ArrayList<WebView>();
-    public static MyActivity main;
+    public static SubmissionActivity main;
     public static int answer; //0-3 a-d; -1 none
     private ArrayList<UserType> users = new ArrayList<UserType>();
     private KeyListener txtIDListener;
@@ -92,18 +91,18 @@ public class MyActivity extends Activity {
             public void onClick(View v)
             {
                 if(v.getId() == R.id.btnA)
-                    MyActivity.answer = 0;
+                    SubmissionActivity.answer = 0;
                 else if(v.getId() == R.id.btnB)
-                    MyActivity.answer = 1;
+                    SubmissionActivity.answer = 1;
                 else if(v.getId() == R.id.btnC)
-                    MyActivity.answer = 2;
+                    SubmissionActivity.answer = 2;
                 else if(v.getId() == R.id.btnD)
-                    MyActivity.answer = 3;
+                    SubmissionActivity.answer = 3;
                 else
-                    MyActivity.answer = -1;
+                    SubmissionActivity.answer = -1;
                 for(WebSessionActivity activity : WebSessionActivity.sessions)
                  activity.getAnswer();
-                Toast.makeText(getApplicationContext(), MyActivity.answer + "", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), SubmissionActivity.answer + "", Toast.LENGTH_SHORT).show();
             }
         };
         ansA.setOnClickListener(answer_click);

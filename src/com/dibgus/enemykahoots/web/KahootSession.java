@@ -1,14 +1,7 @@
 package com.dibgus.enemykahoots.web;
 
-import android.content.Context;
-import android.content.Intent;
-import android.renderscript.RenderScript;
-import android.webkit.WebView;
-import com.dibgus.enemykahoots.MyActivity;
 import com.dibgus.enemykahoots.WebSessionActivity;
 import com.dibgus.enemykahoots.user.UserType;
-
-import java.util.List;
 
 /**
  * Created by Ivan on 3/17/2016.
@@ -79,7 +72,7 @@ public class KahootSession implements Runnable {
                         answered = true;
                         break;
                     case MIMIC:
-                        choice = MyActivity.answer;
+                        choice = SubmissionActivity.answer;
                         selected = elements.size() > 0 ? elements.get(choice) : null;
                         if (selected != null && selected.isDisplayed() && selected.isEnabled()) {
                             selected.click();

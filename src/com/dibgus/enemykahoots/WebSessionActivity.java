@@ -69,14 +69,12 @@ public class WebSessionActivity extends Activity {
                 choice = (int) (Math.random() * 4);
                 break;
             case MIMIC:
-                choice = MyActivity.answer;
+                choice = SubmissionActivity.answer;
                 break;
         }
-        for(int i = 0; i < 10; i++) //make sure i see it
-        System.out.println(choice);
         if (choice == -1) return;
-        execJavaScript("document.getElementsByTagName('button')[" + (choice) + "].click();");
-        System.out.println("document.getElementsByTagName('button')[" + (choice) + "].click();");
+        execJavaScript("document.getElementsByTagName('button')[" + (choice) + "].dispatchEvent(new Event('mousedown'));");
+        System.out.println("invokedme");
     }
 
     public class InteractionHandler {

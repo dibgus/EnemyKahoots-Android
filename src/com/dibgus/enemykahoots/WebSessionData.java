@@ -6,6 +6,7 @@ import com.dibgus.enemykahoots.user.UserType;
 
 /**
  * Created by Ivan on 3/24/2016.
+ * Creates a parcelable package for SubmissionActivity to send the initialization variables to WebSessionActivity
  */
 public class WebSessionData implements Parcelable {
     public String userName;
