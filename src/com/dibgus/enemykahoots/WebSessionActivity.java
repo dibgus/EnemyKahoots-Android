@@ -74,7 +74,7 @@ public class WebSessionActivity extends Activity {
         }
         if (choice == -1) return;
         execJavaScript("document.getElementsByTagName('button')[" + (choice) + "].dispatchEvent(new Event('mousedown'));");
-        System.out.println("invokedme");
+        //System.out.println("invokedme");
     }
 
     public class InteractionHandler {

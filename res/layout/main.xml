@@ -101,28 +101,32 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="A"
-                    android:id="@+id/btnA"/>
+                    android:id="@+id/btnA"
+                    android:background="#ff0000"/>
 
             <Button
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="B"
-                    android:id="@+id/btnB"/>
+                    android:id="@+id/btnB"
+                    android:background="#0000ff"/>
 
             <Button
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="C"
-                    android:id="@+id/btnC"/>
+                    android:id="@+id/btnC"
+                    android:background="#ffdd00"/>
 
             <Button
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="D"
-                    android:id="@+id/btnD"/>
+                    android:id="@+id/btnD"
+                    android:background="#00ff00"/>
 
         </TableRow>
 

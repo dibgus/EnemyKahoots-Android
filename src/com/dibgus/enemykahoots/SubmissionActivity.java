@@ -1,6 +1,5 @@
 package com.dibgus.enemykahoots;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -46,7 +45,7 @@ public class SubmissionActivity extends Activity {
                 else
                     type = UserType.DEAD;
                 Intent i = new Intent(getApplicationContext(), WebSessionActivity.class);
-                System.out.println(txtName.getText().toString() + " " + txtID.getText().toString());
+                //System.out.println(txtName.getText().toString() + " " + txtID.getText().toString());
                 WebSessionData data = new WebSessionData(txtName.getText().toString(), txtID.getText().toString(), type);
                 i.putExtra("info", data);
                 users.add(type);
@@ -57,7 +56,6 @@ public class SubmissionActivity extends Activity {
                     userLabel.setText(userLabel.getText().toString() + txtName.getText().toString());
                 else
                     userLabel.setText(userLabel.getText().toString() + ", " + txtName.getText().toString());
-                Toast.makeText(getApplicationContext(), "Added User: " + txtName.getText().toString(), Toast.LENGTH_LONG).show();
                 txtName.setText("");
             }
         };
@@ -102,7 +100,7 @@ public class SubmissionActivity extends Activity {
                     SubmissionActivity.answer = -1;
                 for(WebSessionActivity activity : WebSessionActivity.sessions)
                  activity.getAnswer();
-                Toast.makeText(getApplicationContext(), SubmissionActivity.answer + "", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), SubmissionActivity.answer + "", Toast.LENGTH_SHORT).show();
             }
         };
         ansA.setOnClickListener(answer_click);
