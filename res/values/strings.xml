@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">EnemyKahoots</string>
+    <string name="idlabel">"Game ID:</string>
+    <string name="idlock">Lock GID</string>
+    <string name="namelabel">Name:</string>
+    <string name="rbtnMimic">Mimic</string>
+    <string name="rbtnDead">Dead</string>
+    <string name="rbtnRandom">Random</string>
+    <string name="userliststart">Users:&#032;</string>
+    <string name="addbutton">Add User To Game</string>
+    <string name="usernamehint">Username</string>
+    <string name="idhint">ID</string>
 </resources>

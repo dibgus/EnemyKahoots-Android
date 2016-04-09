@@ -4,10 +4,7 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:weightSum="1">
-    <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:layout_weight="0.05">
-    </TableRow>
+
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -19,75 +16,90 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Game ID: "
+                    android:text="@string/idlabel"
                     android:id="@+id/textView"/>
             <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtID" android:layout_weight="0.87"
+                    android:hint="@string/idhint"
                     android:inputType="phone"/>
         </TableRow>
         <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_weight="0.21">
+                android:layout_height="wrap_content" >
+
             <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Lock GID"
+                    android:text="@string/idlock"
                     android:id="@+id/ckbxLockID"/>
         </TableRow>
         <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_gravity="center_horizontal"
-                android:layout_weight="0.13">
+                android:layout_height="wrap_content" android:layout_gravity="center_horizontal">
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Name: "
+                    android:text="@string/namelabel"
                     android:id="@+id/textView2" android:layout_weight="0.04"/>
             <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:hint="@string/usernamehint"
                     android:id="@+id/txtName" android:layout_weight="0.38"/>
         </TableRow>
+
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp"/>
+
         <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:layout_gravity="center_horizontal"
-                android:layout_weight="0.20" android:weightSum="1">
+                 android:weightSum="1">
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent" android:layout_weight="0.99">
+
                 <RadioGroup android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
                             android:id="@+id/groupMode" >
                     <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Mimic"
+                            android:text="@string/rbtnMimic"
                             android:id="@+id/rbtnMimic" android:checked="true"/>
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Dead"
+                        android:text="@string/rbtnDead"
                         android:id="@+id/rbtnDead"/>
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Random"
+                        android:text="@string/rbtnRandom"
                         android:id="@+id/rbtnRandom"/>
+
+                    <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            />
                 </RadioGroup>
+
             </LinearLayout>
         </TableRow>
+
         <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_weight="0.38">
+                android:layout_height="0dp" android:layout_weight="0.94">
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Users: "
+                    android:text="@string/userliststart"
                     android:id="@+id/lblUsers"/>
 
         </TableRow>
@@ -97,7 +109,7 @@
                 android:layout_height="wrap_content">
 
             <Space
-                    android:layout_width="5dp"
+                    android:layout_width="10dp"
                     android:layout_height="match_parent"
                     />
 
@@ -105,8 +117,7 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="A"
+                    android:layout_height="65dp"
                     android:id="@+id/btnA"
                     android:background="#ff0000"/>
 
@@ -114,8 +125,7 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="B"
+                    android:layout_height="65dp"
                     android:id="@+id/btnB"
                     android:background="#0000ff"/>
 
@@ -123,8 +133,7 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="C"
+                    android:layout_height="65dp"
                     android:id="@+id/btnC"
                     android:background="#ffdd00"/>
 
@@ -132,13 +141,12 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="D"
+                    android:layout_height="65dp"
                     android:id="@+id/btnD"
                     android:background="#00ff00"/>
 
             <Space
-                    android:layout_width="5dp"
+                    android:layout_width="10dp"
                     android:layout_height="match_parent"
                     />
 
@@ -148,7 +156,7 @@
     <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add User To Game"
+            android:text="@string/addbutton"
             android:id="@+id/btnAddUser" android:layout_gravity="center_horizontal" android:layout_weight="0.19"/>
 </LinearLayout>
 
