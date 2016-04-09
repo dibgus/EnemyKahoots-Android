@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.KeyListener;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.*;
 import com.dibgus.EnemyKahoots.R;
 import com.dibgus.enemykahoots.user.UserType;
@@ -14,7 +13,6 @@ import java.util.ArrayList;
 
 public class SubmissionActivity extends Activity {
 
-    public static ArrayList<WebView> drivers = new ArrayList<WebView>();
     public static SubmissionActivity main;
     public static int answer; //0-3 a-d; -1 none
     private ArrayList<UserType> users = new ArrayList<UserType>();
@@ -37,6 +35,16 @@ public class SubmissionActivity extends Activity {
             {
                 EditText txtName = (EditText)findViewById(R.id.txtName);
                 EditText txtID = (EditText)findViewById(R.id.txtID);
+                if(txtID.getText().toString().equals(""))
+                {
+                    Toast.makeText(getApplicationContext(), "Please specify a game ID", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(txtName.getText().toString().equals(""))
+                {
+                    Toast.makeText(getApplicationContext(), "Please specify a Username", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 UserType type;
                 if(((RadioButton)findViewById(R.id.rbtnMimic)).isChecked())
                     type = UserType.MIMIC;
@@ -56,6 +64,7 @@ public class SubmissionActivity extends Activity {
                     userLabel.setText(userLabel.getText().toString() + txtName.getText().toString());
                 else
                     userLabel.setText(userLabel.getText().toString() + ", " + txtName.getText().toString());
+                Toast.makeText(getApplicationContext(), "Added User: " + txtName.getText().toString(), Toast.LENGTH_SHORT).show();
                 txtName.setText("");
             }
         };

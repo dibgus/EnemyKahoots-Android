@@ -21,21 +21,24 @@ public class WebSessionActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        this.onBackPressed(); //experimental
-        setVisible(false);
+        //this.onBackPressed(); //comment this out for visual debugging
+        //setVisible(false); //comment this out too for visual debugging
+
+        //parcel extraction
         WebSessionData data = getIntent().getExtras().getParcelable("info");
         userName = data.userName;
         gameID = data.gameID;
         behaviour = data.type;
         sessions.add(this);
 
+        //Sets up the WebView
         setContentView(R.layout.view);
         super.onCreate(savedInstanceState);
         mainView = (WebView) findViewById(R.id.mainView);
         mainView.getSettings().setJavaScriptEnabled(true);
         mainView.getSettings().setDomStorageEnabled(true);
-        InteractionHandler webHandler = new InteractionHandler();
-        mainView.addJavascriptInterface(webHandler, "HtmlViewer");
+        mainView.getSettings().setLoadsImagesAutomatically(false); //resource saving since the user doesn't see flashy graphics
+
         mainView.setWebViewClient(new WebViewClient() {
             public void onPageFinished(WebView view, String url) {
                 execJavaScript("" +
@@ -74,18 +77,7 @@ public class WebSessionActivity extends Activity {
         }
         if (choice == -1) return;
         execJavaScript("document.getElementsByTagName('button')[" + (choice) + "].dispatchEvent(new Event('mousedown'));");
-        //System.out.println("invokedme");
     }
-
-    public class InteractionHandler {
-        public String html;
-
-        @JavascriptInterface
-        public void showHTML(String newHtml) {
-            html = newHtml;
-        }
-    }
-
 
     public void execJavaScript(String cmd) {
         mainView.loadUrl("javascript:" + cmd);
